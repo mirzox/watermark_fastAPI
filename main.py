@@ -46,6 +46,7 @@ async def get(data: Item):
         await bot.send_media_group(
             chat_id=conf.CHANNEL_ID,
             media=collection,
-            write_timeout=100
+            write_timeout=100,
+            read_timeout=30
         )
     return {}

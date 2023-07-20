@@ -36,7 +36,10 @@ def watermark(photo: BytesIO):
     coefficient = 0.451
     with Image.open(photo) as img:
         w, h = img.size
-        image = img.resize((int(w//1.5), int(h//1.5)), Image.NEAREST)
+        if w > 3000 or h > 3000:
+            image = img.resize((int(w//1.5), int(h//1.5)), Image.NEAREST)
+        else:
+            image = img.copy()
     w, h = image.size
     img = image
     logo_size = int(w * coefficient if w < h else h * coefficient)
