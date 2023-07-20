@@ -36,7 +36,7 @@ async def get_r():
 @app.post('/')
 async def get(data: Item):
     bot = Bot(conf.TOKEN)
-    if data.photos is not None:
+    if data.photos is not None and len(data.photos):
         collection = []
         if len(data.photos) > 10:
             photos = data.photos[:10]
