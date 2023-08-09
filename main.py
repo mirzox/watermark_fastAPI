@@ -36,6 +36,7 @@ async def get_r():
 @app.post('/')
 async def get(data: Item):
     bot = Bot(conf.TOKEN)
+    price = f"{data.price:,}".replace(',', '.')
     if data.photos is not None and len(data.photos):
         collection = []
         if len(data.photos) > 10:
@@ -43,7 +44,7 @@ async def get(data: Item):
         else:
             photos = data.photos
         imgs = await download_images(photos)
-        msg = text.format(**data.model_dump(exclude={'photo', }))
+        msg = text.format(price=price, **data.model_dump(exclude={'photo', 'price'}))
         for index, img in enumerate(imgs):
             collection.append(InputMediaPhoto(watermark(BytesIO(img)), caption=msg if not index else '', parse_mode='html'))
 
@@ -55,7 +56,7 @@ async def get(data: Item):
                 read_timeout=30
             )
     else:
-        msg = text.format(**data.model_dump(exclude={'photo', }))
+        msg = text.format(price=price, **data.model_dump(exclude={'photo', 'price'}))
         async with bot:
             await bot.send_message(
                 chat_id=conf.CHANNEL_ID,
