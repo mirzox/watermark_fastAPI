@@ -56,7 +56,7 @@ async def get(data: Item):
                 read_timeout=30
             )
     else:
-        msg = text.format(price=price, **data.model_dump(exclude={'photo', 'price'}))
+        msg = text.format(price=price, **data.model_dump(exclude={'photo', 'price', ''}))
         async with bot:
             await bot.send_message(
                 chat_id=conf.CHANNEL_ID,

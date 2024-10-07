@@ -1,9 +1,6 @@
 text = """
-<i>{number_of_rooms}/{floor}/{number_of_floors} {sub_district} {area}m²</i>
+<i>{number_of_rooms}/{floor}/{number_of_floors} {description}</i>
 
-<i>Состояние: {repair}</i>
-<i>Ор-р: {landmark}</i>
-<i>Описание: {description}</i>
 
 <i>Цена: {price}</i>
 
