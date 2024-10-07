@@ -5,6 +5,7 @@ from io import BytesIO
 from fastapi import FastAPI
 from pydantic import BaseModel
 from telegram import Bot, InputMediaPhoto
+from fastapi.middleware.cors import CORSMiddleware
 
 from utils import download_images, watermark
 from message import text
@@ -12,7 +13,16 @@ from config import Config
 
 
 conf = Config()
+
+
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class Item(BaseModel):
