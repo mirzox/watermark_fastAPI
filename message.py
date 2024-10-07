@@ -4,7 +4,7 @@ text = """
 
 <i>Цена: {price}</i>
 
-📞<i>Тел: +998998078071 </i>
-📱<a href='https://t.me/iHometashkent'>Telegram</a> | <a href='https://t.me/Majoor_kz'>Написать 💬</a> 
+📞<i> +998998078071 </i>
+📱<a href='https://t.me/iHometashkent'>Телеграм Канал</a> | <a href='https://t.me/Majoor_kz'>Написать 💬</a> 
 #{number_of_rooms}ком
 """
