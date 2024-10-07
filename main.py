@@ -29,10 +29,10 @@ class Item(BaseModel):
     number_of_rooms: int
     floor: int
     number_of_floors: int
-    sub_district: str
+    sub_district: str | None
     repair: str
     area: int
-    landmark: str
+    landmark: str | None
     price: int
     description: str
     photos: List[str] | None = None
